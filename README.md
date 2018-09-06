@@ -26,7 +26,7 @@ baking.
 ```bash
 mkdir packer_skeleton
 cd packer_skeleton
-git clone ${REPO_NAME} .
+git clone https://github.com/nubbthedestroyer/packer-ssh-bypass.git .
 ```
 1) Run the script titled "RUNME.sh"
 
