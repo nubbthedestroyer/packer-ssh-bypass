@@ -3,5 +3,5 @@
   "packer_provisioner_script": "../provisioners/run.sh",
   "packer_ami_prefix": "packerbuild",
   "packer_ami_description": "Build from packer skeleton",
-  "packer_instance_type": "c5.xlarge"
+  "packer_instance_type": "t2.large"
 }

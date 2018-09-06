@@ -49,10 +49,11 @@ and you'll see something like this:
 
 ```json
 {
-  "packer_source_ami": "ami-04169656fea786776",
-  "packer_provisioner_script": "provision.sh",
-  "packer_ami_name": "packerbuild-{{timestamp}}",
-  "packer_ami_description": "Build from packer skeleton"
+  "packer_source_ami": "ami-04681a1dbd79675a5",
+  "packer_provisioner_script": "../provisioners/run.sh",
+  "packer_ami_prefix": "packerbuild",
+  "packer_ami_description": "Build from packer skeleton",
+  "packer_instance_type": "t2.large"
 }
 ```
 
