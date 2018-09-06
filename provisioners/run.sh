@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# PLACE ALL AMI CONFIGURATION COMMANDS HERE
+
+echo "ITS RUNNING!!!"

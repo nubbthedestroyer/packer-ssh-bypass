@@ -1,0 +1,5 @@
+.idea
+terraform/.terraform
+terraform/terraform.tfstate*
+packer/vars.json
+packer/packerlog.txt

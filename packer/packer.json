@@ -1,0 +1,46 @@
+{
+  "variables": {
+    "packer_bastion_ip": "",
+    "packer_bastion_port": "",
+    "packer_bastion_ssh_user": "",
+    "packer_bastion_ssh_password": "",
+    "packer_aws_region": "",
+    "packer_ssh_key_name": "",
+    "packer_source_ami": "",
+    "packer_ami_prefix": "",
+    "packer_ami_description": "",
+    "packer_instance_type": "",
+    "packer_provisioner_script": ""
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "communicator": "ssh",
+    "ssh_bastion_host": "{{user `packer_bastion_ip`}}",
+    "ssh_bastion_port": "{{user `packer_bastion_port`}}",
+    "ssh_bastion_password": "{{user `packer_bastion_ssh_password`}}",
+    "ssh_bastion_username": "{{user `packer_bastion_ssh_user`}}",
+    "region": "{{user `packer_aws_region`}}",
+    "instance_type": "{{user `packer_instance_type`}}",
+    "ssh_username": "{{user `packer_ssh_user`}}",
+    "ssh_timeout": "20m",
+    "ami_name": "{{user `packer_ami_prefix`}}-{{timestamp}}",
+    "ami_description": "{{user `packer_ami_description`}}",
+    "associate_public_ip_address": "true",
+      "source_ami_filter": {
+        "filters": {
+          "image-id": "{{user `packer_source_ami`}}"
+        },
+        "most_recent": true
+      }
+    }
+  ],
+  "provisioners": [
+    {
+    "type": "shell",
+    "scripts": [
+      "{{user `packer_provisioner_script`}}"
+    ],
+    "execute_command": "sudo bash {{ .Path }}"
+    }
+  ]
+}
