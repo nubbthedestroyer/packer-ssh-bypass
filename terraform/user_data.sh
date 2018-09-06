@@ -13,6 +13,7 @@ chown ${ssh_user}:${ssh_user} /home/${ssh_user}/.ssh/config
 #echo "Port ${ssh_port}" >> /etc/ssh/sshd_config
 
 sed -i "s/Port 22/Port ${ssh_port}/g" /etc/ssh/sshd_config
+sed -i "s/\#Port ${ssh_port}/Port ${ssh_port}/g" /etc/ssh/sshd_config
 
 yes "${ssh_password}" | passwd ${ssh_user}
 sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
