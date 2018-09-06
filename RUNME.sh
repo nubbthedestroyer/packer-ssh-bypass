@@ -3,9 +3,9 @@
 set -e
 
 # Don't worry about setting any of these variables
-#export PACKER_AWS_ACCESS_KEY_ID="aws configure get default.aws_access_key_id"
-#export PACKER_AWS_SECRET_ACCESS_KEY="aws configure get default.aws_secret_access_key"
-#export PACKER_AWS_DEFAULT_REGION="aws configure get default.region"
+export AWS_ACCESS_KEY_ID=`aws configure get default.aws_access_key_id`
+export AWS_SECRET_ACCESS_KEY=`aws configure get default.aws_secret_access_key`
+export AWS_DEFAULT_REGION=`aws configure get default.region`
 
 #    -var "packer_aws_access_key_id=${PACKER_AWS_ACCESS_KEY_ID}" \
 #    -var "packer_aws_secret_access_key=${PACKER_AWS_SECRET_ACCESS_KEY}" \
@@ -24,6 +24,7 @@ export PACKER_BASTION_SSH_USER=`terraform output bastion_ssh_user`
 export PACKER_BASTION_SSH_PASSWORD=`terraform output bastion_ssh_password`
 export PACKER_SSH_KEY_NAME=`terraform output ssh_key_name`
 export PACKER_SSH_PASSWORD=`terraform output bastion_ssh_password`
+export PACKER_DEFAULT_AMI=`terraform output default_ami`
 cd -
 
 echo ${PACKER_BASTION_IP}
@@ -49,6 +50,7 @@ packer build \
     -var "packer_aws_region=${PACKER_AWS_REGION}" \
     -var "packer_ssh_user=${PACKER_SSH_USER}" \
     -var "packer_ssh_key_name=${PACKER_SSH_KEY_NAME}" \
+    -var "packer_source_ami=${PACKER_DEFAULT_AMI}" \
     -var-file vars.json \
     packer.json
 

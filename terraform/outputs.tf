@@ -14,6 +14,10 @@ output "bastion_ssh_port" {
   value = "${var.bastion_ssh_port}"
 }
 
+output "default_ami" {
+  value = "${data.aws_ami.default_build_ami.id}"
+}
+
 output "aws_region" {
   value = "${data.aws_region.current.name}"
 }

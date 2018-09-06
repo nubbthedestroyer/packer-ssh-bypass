@@ -1,6 +1,4 @@
-provider "aws" {
-  region = "${var.region}"
-}
+provider "aws" {}
 
 data "aws_region" "current" {}
 
@@ -61,8 +59,26 @@ data "aws_subnet_ids" "subnets" {
   vpc_id = "${aws_default_vpc.default.id}"
 }
 
+data "aws_ami" "bastion_ami" {
+  most_recent      = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server*"]
+  }
+}
+
+data "aws_ami" "default_build_ami" {
+  most_recent      = true
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*"]
+  }
+}
+
 resource "aws_instance" "default" {
-  ami           = "${var.ami}"
+  ami           = "${data.aws_ami.bastion_ami.id}"
   instance_type = "t2.micro"
 
   user_data = "${data.template_file.user_data.rendered}"
