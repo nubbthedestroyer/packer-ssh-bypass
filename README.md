@@ -59,8 +59,18 @@ and you'll see something like this:
 
 Arguably, the most important value in here would be packer_source_ami
 as this would allow you to set the base image and OS to build on.
-This template defaults to ubuntu, but you could use any linux image
-as long as the provisioning script was valid for that operating system.
+By default, THIS IS LEFT OUT so that a default ami id can be given from
+terraform, which is always Amazon Linux 2.  If you want to use a custom
+ami please ensure the following line is in the "vars.json" file under
+the "packer" directory.
+
+```json
+"packer_source_ami": "<your_custom_ami>",
+```
+
+This template defaults to Amazon Linux 2, but you could use any linux
+image as long as the provisioning script was valid for that operating
+system.
 
 ##### RUNME.sh
 
