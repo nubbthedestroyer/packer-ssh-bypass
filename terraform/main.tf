@@ -64,7 +64,7 @@ data "aws_ami" "bastion_ami" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server*"]
+    values = ["amzn2-ami-hvm-*"]
   }
 }
 

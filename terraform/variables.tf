@@ -17,5 +17,5 @@ variable "bastion_ssh_port" {
 
 variable "bastion_ssh_user" {
   description = "The username of the Bastion server (not the packer source ami).  This should always be ubuntu unless you changed the base AMI of the bastion instance."
-  default = "ubuntu"
+  default = "ec2-user"
 }
