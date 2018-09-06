@@ -80,5 +80,12 @@ There are a few ways to add provisioning logic:
 block to the packer.json. (ANY type of script as log as its supported
 by packer.  (https://www.packer.io/docs/provisioners/index.html)
 
+#### Cleanup
+
+To clean up your mess like Mickey Mouse in the Sorcerer's Apprentice:
+
+```bash
+CLEANUP.sh
+```
 
 ### Long Live Shadow IT
