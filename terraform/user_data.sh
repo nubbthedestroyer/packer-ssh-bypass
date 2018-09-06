@@ -10,8 +10,6 @@ __EOF__
 chmod 600 /home/${ssh_user}/.ssh/config
 chown ${ssh_user}:${ssh_user} /home/${ssh_user}/.ssh/config
 
-#echo "Port ${ssh_port}" >> /etc/ssh/sshd_config
-
 sed -i "s/Port 22/Port ${ssh_port}/g" /etc/ssh/sshd_config
 sed -i "s/\#Port ${ssh_port}/Port ${ssh_port}/g" /etc/ssh/sshd_config
 

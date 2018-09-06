@@ -2,13 +2,9 @@
 
 set -e
 
-# Don't worry about setting any of these variables
-export AWS_ACCESS_KEY_ID=`aws configure get default.aws_access_key_id`
-export AWS_SECRET_ACCESS_KEY=`aws configure get default.aws_secret_access_key`
-export AWS_DEFAULT_REGION=`aws configure get default.region`
-
-#    -var "packer_aws_access_key_id=${PACKER_AWS_ACCESS_KEY_ID}" \
-#    -var "packer_aws_secret_access_key=${PACKER_AWS_SECRET_ACCESS_KEY}" \
+#export AWS_ACCESS_KEY_ID=`aws configure get default.aws_access_key_id`
+#export AWS_SECRET_ACCESS_KEY=`aws configure get default.aws_secret_access_key`
+#export AWS_DEFAULT_REGION=`aws configure get default.region`
 
 # Apply the terraform
 cd terraform
