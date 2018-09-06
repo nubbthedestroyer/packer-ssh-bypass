@@ -11,12 +11,12 @@ variable "ssh_key_name" {
 }
 
 variable "ssh_user" {
-  description = "The username you would like to use to connect to the packer builder (not the bastion). This varies based on the source AMI.  For Ubuntu, its \"ubuntu\" and for Amazon Linux, CentOS, or RedHat its \"ec2-user\""
+  description = "The username you would like to use to connect to the packer builder (not the bastion). This varies based on the source AMI.  For Ubuntu, its \"ubuntu\" and for Amazon Linux, CentOS, or RedHat its \"ec2-user\".  This skeleton uses Amazon Linux 2 by default so, if in doubt, use \"ec2-user\"."
 }
 
 variable "bastion_ssh_port" {
   description = "Port that you would like the bastion to listen for incoming connections on.  This is used in the Packer config as a variable."
-  default = "22"
+  default = "443"
 }
 
 variable "bastion_ssh_user" {

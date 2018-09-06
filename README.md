@@ -1,10 +1,10 @@
-## Automated Packer Builder
+## Packer Builder Template with SSH Bypass
 A quick little workaround for using Packer in AWS whilst behind a firewall. :-)
 
 #### Prerequisites
 
 In order to use this tool you need the following already installed:
-* Terraform (0.11 as of writing this)
+* Terraform (v0.11.7 as of writing this)
 * Packer
 * AWS Access Key for the account you want your packer builds to run in.
 * A DEFAULT VPC is enabled in that account.
