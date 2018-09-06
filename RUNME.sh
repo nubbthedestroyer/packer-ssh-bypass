@@ -13,7 +13,7 @@ set -e
 # Apply the terraform
 cd terraform
 terraform init
-terraform apply -lock=false
+terraform apply -lock=false -auto-approve
 
 # Grab terraform outputs
 export PACKER_BASTION_IP=`terraform output bastion_ip_address`
