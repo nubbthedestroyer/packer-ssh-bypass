@@ -5,7 +5,7 @@ A quick little workaround for using Packer in AWS whilst behind a firewall. :-)
 
 In order to use this tool you need the following already installed:
 * Terraform (v0.11.7 as of writing this)
-* Packer
+* Packer (1.2.5 as of writing this)
 * AWS Access Key for the account you want your packer builds to run in.
 * A DEFAULT VPC is enabled in that account.
 * You have a key pair setup in that account that Terraform can use for the bastion host.
