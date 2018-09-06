@@ -24,8 +24,8 @@ baking.
 1) Install prerequisites
 1) Clone this repo
 ```bash
-mkdir packer_skeleton
-cd packer_skeleton
+mkdir packer-ssh-bypass
+cd packer-ssh-bypass
 git clone https://github.com/nubbthedestroyer/packer-ssh-bypass.git .
 ```
 1) Run the script titled "RUNME.sh"
