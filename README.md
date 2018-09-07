@@ -49,7 +49,7 @@ and you'll see something like this:
 
 ```json
 {
-  "packer_source_ami": "ami-04681a1dbd79675a5", # this will override the default ami that terraform discovers.
+  "packer_source_ami": "ami-04681a1dbd79675a5",
   "packer_provisioner_script": "../provisioners/run.sh",
   "packer_ami_prefix": "packerbuild",
   "packer_ami_description": "Build from packer skeleton",
