@@ -90,7 +90,7 @@ resource "aws_instance" "default" {
   iam_instance_profile        = "${aws_iam_instance_profile.default.name}"
   associate_public_ip_address = "true"
 
-  key_name  = "${var.ssh_key_name}"
+  key_name  = "${var.ssh_key_name != "" ? var.ssh_key_name : var.tmp_keypair_name}"
   subnet_id = "${data.aws_subnet_ids.subnets.ids[0]}"
 
   root_block_device {
@@ -109,7 +109,7 @@ data "template_file" "user_data" {
     welcome_message = "Please use responsibly."
     ssh_user        = "${var.bastion_ssh_user}"
     ssh_port        = "${var.bastion_ssh_port}"
-    ssh_password    = "${random_string.ssh_password.result}"
+//    ssh_password    = "${random_string.ssh_password.result}"
   }
 }
 

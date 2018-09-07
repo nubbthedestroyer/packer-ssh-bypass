@@ -3,7 +3,6 @@
     "packer_bastion_ip": "",
     "packer_bastion_port": "",
     "packer_bastion_ssh_user": "",
-    "packer_bastion_ssh_password": "",
     "packer_aws_region": "",
     "packer_ssh_key_name": "",
     "packer_source_ami": "",
@@ -17,8 +16,10 @@
     "communicator": "ssh",
     "ssh_bastion_host": "{{user `packer_bastion_ip`}}",
     "ssh_bastion_port": "{{user `packer_bastion_port`}}",
-    "ssh_bastion_password": "{{user `packer_bastion_ssh_password`}}",
     "ssh_bastion_username": "{{user `packer_bastion_ssh_user`}}",
+    "ssh_bastion_private_key_file": "{{user `packer_ssh_key_name`}}.pem",
+    "ssh_keypair_name": "{{user `packer_ssh_key_name`}}",
+    "ssh_private_key_file": "{{user `packer_ssh_key_name`}}.pem",
     "region": "{{user `packer_aws_region`}}",
     "instance_type": "{{user `packer_instance_type`}}",
     "ssh_username": "{{user `packer_ssh_user`}}",
@@ -36,11 +37,11 @@
   ],
   "provisioners": [
     {
-    "type": "shell",
-    "scripts": [
-      "{{user `packer_provisioner_script`}}"
+      "type": "shell",
+      "scripts": [
+        "{{user `packer_provisioner_script`}}"
     ],
-    "execute_command": "sudo bash {{ .Path }}"
+      "execute_command": "sudo bash {{ .Path }}"
     }
   ]
 }

@@ -4,6 +4,7 @@ variable "ami" {
 
 variable "ssh_key_name" {
   description = "Enter a keypair name in AWS to use for authentication to the packer build instance (not bastion).  Ensure you have the private key on your machine.  This keypair must already have been created.  See here for details: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair"
+  default = ""
 }
 
 variable "ssh_user" {
@@ -18,4 +19,8 @@ variable "bastion_ssh_port" {
 variable "bastion_ssh_user" {
   description = "The username of the Bastion server (not the packer source ami).  This should always be ec2-user unless you changed the base AMI of the bastion instance."
   default = "ec2-user"
+}
+
+variable "tmp_keypair_name" {
+  description = "Name of the temporary key to be used for both bastion and packer instance."
 }
