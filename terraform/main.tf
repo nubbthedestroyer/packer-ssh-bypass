@@ -43,16 +43,6 @@ resource "aws_security_group_rule" "sg_egress_all" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-//module "vpc" {
-//  source   = "git@github.com:rackspace-infrastructure-automation/aws-terraform-vpc_basenetwork.git?ref=v0.0.1"
-//  vpc_name = "testvpc"
-//}
-//
-//resource "aws_route53_zone" "localzone"{
-//  name = "vpc.local"
-//  vpc_id = "${module.vpc.vpc_id}"
-//}
-
 resource "aws_default_vpc" "default" {}
 
 data "aws_subnet_ids" "subnets" {
